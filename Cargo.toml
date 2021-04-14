@@ -1,0 +1,22 @@
+[package]
+name = "cmus-discord-rpc"
+version = "0.2.0"
+authors = ["Bond_009 <bond.009@outlook.com>"]
+keywords = ["discord", "rpc", "cmus"]
+repository = "https://github.com/Bond-009/cmus-discord-rpc"
+edition = "2018"
+
+[profile.release]
+debug = false
+lto = true
+opt-level = 3
+panic = "abort"
+
+[dependencies]
+env_logger = "0.6.2"
+log = "0.4.7"
+regex = "1.1"
+
+[dependencies.discord-rpc-client]
+git = "https://gitlab.com/valeth/discord-rpc-client.rs.git"
+branch = "develop"

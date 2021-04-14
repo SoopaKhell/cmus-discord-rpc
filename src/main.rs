@@ -66,15 +66,16 @@ fn main() {
                 }
             }
             else {
-                ac = ac.details(artist.unwrap().to_owned() + " - " + title.unwrap());
+                ac = ac.details(&format!("{} - {}", artist.unwrap().to_owned(), title.unwrap()));
             }
 
             if status == Status::Playing {
                 let duration = get_value(&output, "duration").unwrap().parse::<u64>().unwrap();
                 let position = get_value(&output, "position").unwrap().parse::<u64>().unwrap();
-                //let sce = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs();
                 
                 ac = ac.state(&format!("{} / {} seconds", position, duration));
+            } else {
+                ac = ac.state("paused");
             }
         }
 
